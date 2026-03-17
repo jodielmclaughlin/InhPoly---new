@@ -8,9 +8,10 @@ namespace Vehicles
 {
     public class MotorcycleEngine : Engine
     {
-        public MotorcycleEngine() : base(150, FuelType.Unleaded)
+        public MotorcycleEngine(int horsepower, FuelType fuelType) : base(horsepower, fuelType)
         {
-            
+            Horsepower = 150;
+            FuelType = FuelType.Unleaded;
         }
     }
 }

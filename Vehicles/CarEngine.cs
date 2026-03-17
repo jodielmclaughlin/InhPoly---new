@@ -8,7 +8,7 @@ namespace Vehicles
 {
     public class CarEngine : Engine
     {
-        public CarEngine() : base(50, FuelType.Leaded)
+        public CarEngine() : base(150, FuelType.Leaded)
         {
             
         }

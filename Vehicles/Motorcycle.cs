@@ -9,14 +9,25 @@ namespace Vehicles
     internal class Motorcycle : Vehicle
     {
         public bool HasSidecar { get; set; }
-        public Motorcycle(string make, string model, bool hasSidecar, Engine engineType) : base(make, model, engineType)
+        public Motorcycle(string make, string model, bool hasSidecar) : base(make, model, new MotorcycleEngine(150, FuelType.Unleaded))
         {
             
             HasSidecar = hasSidecar;
         }
         protected override void Accelerate()
         {
-            
+            string message = $"{Make} {Model} speed: ";
+            double fuelMod = EngineType.FuelType switch
+            {
+                FuelType.Unleaded => 1.5D,
+                FuelType.Leaded => 1.2D,
+                FuelType.Diesel => 1.8D,
+                _ => throw new InvalidOperationException($"Unexpected value: {EngineType.FuelType}")
+            };
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"{message}{((EngineType.Horsepower * fuelMod) * Math.Exp(Math.Sqrt(i)) / 2) * (HasSidecar ? 0.8 : 1.0)}mph");
+            }
         }
     }
 }
