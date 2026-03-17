@@ -10,12 +10,10 @@
             nissan.StartEngine();
             nissan.Drive();
 
-            Console.WriteLine();
-            
             harley.StartEngine();
             harley.Drive();
             
-            Console.WriteLine();
+            
                         
             
         }
